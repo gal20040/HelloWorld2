@@ -4,7 +4,7 @@ plugins {
     // See official Gradle and Android Gradle Plugin compatibility table here https://developer.android.com/studio/releases/gradle-plugin#updating-gradle
     // To specify a custom Gradle version in Unity, go do "Preferences > External Tools", uncheck "Gradle Installed with Unity (recommended)" and specify a path to a custom Gradle version
     id 'com.android.application' version '9.1.1' apply false
-    id 'com.android.library' version '9.1.1' apply false
+    id 'com.android.library' version '9.4.1' apply false
     **BUILD_SCRIPT_DEPS**
 }
 
