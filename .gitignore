@@ -1,0 +1,46 @@
+# =============== #
+# Unity generated #
+# =============== #
+.vs/
+Logs/
+Temp/
+Obj/
+UnityGenerated/
+Library/
+# ProjectSettings/
+/[Uu]ser[Ss]ettings/
+
+# Sentry Config File
+.env.sentry-build-plugin
+Assets/Plugins/Sentry/SentryCliOptions.asset
+Assets/Plugins/Sentry/SentryCliOptions.asset.meta
+
+# ===================================== #
+# Visual Studio / MonoDevelop generated #
+# ===================================== #
+ExportedObj/
+*.svd
+*.userprefs
+*.csproj
+*.csprojx
+*.pidb
+*.suo
+*.sln
+*.user
+*.unityproj
+*.booproj
+*.sln
+*.slnx
+cache.zip
+
+# ============ #
+# OS generated #
+# ============ #
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Icon?
+ehthumbs.db
+Thumbs.db
