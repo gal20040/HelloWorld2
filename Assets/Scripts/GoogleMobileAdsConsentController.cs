@@ -25,9 +25,15 @@ namespace GoogleMobileAds.Samples
         [SerializeField, Tooltip("Error message for the error popup,")]
         private Text _errorText;
 
+        private static bool _hasResetThisSession = false;
+
         private void Start()
         {
-            ResetConsentInformation();
+            if (!_hasResetThisSession)
+            {
+                _hasResetThisSession = true;
+                ResetConsentInformation();
+            }
 
             // Disable the error popup,
             if (_errorPopup != null)
