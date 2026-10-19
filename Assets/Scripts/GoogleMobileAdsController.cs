@@ -21,7 +21,7 @@ namespace GoogleMobileAds.Samples
 #if UNITY_IPHONE
             "96e23e80653bb28980d3f40beb58915c",
 #elif UNITY_ANDROID
-            "702815ACFC14FF222DA1DC767672A573"
+            "F8BEA8A0CCF0BB09B77C1CFF544D1DA9" //honor
 #endif
         };
 
