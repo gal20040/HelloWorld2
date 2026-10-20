@@ -27,19 +27,55 @@ namespace GoogleMobileAds.Samples
 
         private static bool _hasResetThisSession = false;
 
+        //private static readonly object lockObject = new();
+
         private void Start()
         {
-            if (!_hasResetThisSession)
-            {
-                _hasResetThisSession = true;
-                ResetConsentInformation();
-            }
+            var prefix = $"[{nameof(GoogleMobileAdsConsentController)}.{nameof(Start)}]";
+            Debug.Log($"{prefix} Started...");
+
+            Debug.Log($"{prefix} Before calling '{nameof(ResetConsentOnce)}'.");
+            ResetConsentOnce();
+            Debug.Log($"{prefix} After calling '{nameof(ResetConsentOnce)}'.");
 
             // Disable the error popup,
             if (_errorPopup != null)
             {
                 _errorPopup.SetActive(false);
             }
+
+            Debug.Log($"{prefix} Finished.");
+        }
+
+        public void ResetConsentOnce()
+        {
+            var prefix = $"[{nameof(GoogleMobileAdsConsentController)}.{nameof(ResetConsentOnce)}]";
+            Debug.Log($"{prefix} Started...");
+
+            if (_hasResetThisSession)
+            {
+                Debug.Log($"{prefix} Finished ('{nameof(_hasResetThisSession)}'='{_hasResetThisSession}'). Exit this method.");
+
+                return;
+            }
+
+            Debug.Log($"{prefix} '{nameof(_hasResetThisSession)}'='{_hasResetThisSession}' - go to reset consent logic.");
+
+            //lock (lockObject)
+            //{
+                //if (!_hasResetThisSession)
+                //{
+                    _hasResetThisSession = true;
+
+                    Debug.Log($"{prefix} Before calling '{nameof(ResetConsentInformation)}' " +
+                        $"('{nameof(CanRequestAds)}'='{CanRequestAds}'; '{nameof(ConsentStatus)}'='{ConsentInformation.ConsentStatus}').");
+                    ResetConsentInformation();
+                    Debug.Log($"{prefix} After calling '{nameof(ResetConsentInformation)}' " +
+                        $"('{nameof(CanRequestAds)}'='{CanRequestAds}'; '{nameof(ConsentStatus)}'='{ConsentInformation.ConsentStatus}').");
+                //}
+            //}
+
+            Debug.Log($"{prefix} Finished.");
         }
 
         /// <summary>

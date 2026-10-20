@@ -38,6 +38,9 @@ namespace GoogleMobileAds.Samples
         /// </summary>
         private void Start()
         {
+            var prefix = $"[{nameof(GoogleMobileAdsController)}.{nameof(Start)}]";
+            Debug.Log($"{prefix} Started...");
+
             // On Android, Unity is paused when displaying interstitial or rewarded video.
             // This setting makes iOS behave consistently with Android.
             MobileAds.SetiOSAppPauseOnBackground(true);
@@ -49,6 +52,10 @@ namespace GoogleMobileAds.Samples
                 TestDeviceIds = TestDeviceIds
             });
 
+            Debug.Log($"{prefix} Before calling '{nameof(_consentController.ResetConsentOnce)}'.");
+            _consentController.ResetConsentOnce();
+            Debug.Log($"{prefix} After calling '{nameof(_consentController.ResetConsentOnce)}'.");
+
             // If we can request ads, we should initialize the Google Mobile Ads Unity plugin.
             if (_consentController.CanRequestAds)
             {
@@ -57,6 +64,8 @@ namespace GoogleMobileAds.Samples
 
             // Ensures that privacy and consent information is up to date.
             InitializeGoogleMobileAdsConsent();
+
+            Debug.Log($"{prefix} Finished.");
         }
 
         /// <summary>
