@@ -27,8 +27,6 @@ namespace GoogleMobileAds.Samples
 
         private static bool _hasResetThisSession = false;
 
-        //private static readonly object lockObject = new();
-
         private void Start()
         {
             var prefix = $"[{nameof(GoogleMobileAdsConsentController)}.{nameof(Start)}]";
@@ -61,19 +59,13 @@ namespace GoogleMobileAds.Samples
 
             Debug.Log($"{prefix} '{nameof(_hasResetThisSession)}'='{_hasResetThisSession}' - go to reset consent logic.");
 
-            //lock (lockObject)
-            //{
-                //if (!_hasResetThisSession)
-                //{
-                    _hasResetThisSession = true;
+            _hasResetThisSession = true;
 
-                    Debug.Log($"{prefix} Before calling '{nameof(ResetConsentInformation)}' " +
-                        $"('{nameof(CanRequestAds)}'='{CanRequestAds}'; '{nameof(ConsentStatus)}'='{ConsentInformation.ConsentStatus}').");
-                    ResetConsentInformation();
-                    Debug.Log($"{prefix} After calling '{nameof(ResetConsentInformation)}' " +
-                        $"('{nameof(CanRequestAds)}'='{CanRequestAds}'; '{nameof(ConsentStatus)}'='{ConsentInformation.ConsentStatus}').");
-                //}
-            //}
+            Debug.Log($"{prefix} Before calling '{nameof(ResetConsentInformation)}' " +
+                $"('{nameof(CanRequestAds)}'='{CanRequestAds}'; '{nameof(ConsentStatus)}'='{ConsentInformation.ConsentStatus}').");
+            ResetConsentInformation();
+            Debug.Log($"{prefix} After calling '{nameof(ResetConsentInformation)}' " +
+                $"('{nameof(CanRequestAds)}'='{CanRequestAds}'; '{nameof(ConsentStatus)}'='{ConsentInformation.ConsentStatus}').");
 
             Debug.Log($"{prefix} Finished.");
         }
